@@ -48,7 +48,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <i class="spinner loading icon"></i>
+        <i class="massive spinner loading icon"></i>
       </div>
     );
   }
