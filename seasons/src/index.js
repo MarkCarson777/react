@@ -14,6 +14,14 @@ import ReactDOM from 'react-dom';
 
 // class based component
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // this is the state object
+    this.state = { lat: null };
+  }
+
+  // React says we are required to define render!
   render() {
     window.navigator.geolocation.getCurrentPosition(
       // success callback
