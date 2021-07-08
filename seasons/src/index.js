@@ -2,6 +2,7 @@ import './SeasonDisplay.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // functional based component
 // const App = () => {
@@ -49,7 +50,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <i className="season-display massive spinner loading icon"></i>
+        {Spinner()};
       </div>
     );
   }
