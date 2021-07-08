@@ -23,6 +23,9 @@ class App extends React.Component {
     this.state = { lat: null, errorMessage: '' };
   }
   
+  // alternative way to initialize state
+  // state = { lat: null, errorMessage: '' };
+  
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       // success callback
