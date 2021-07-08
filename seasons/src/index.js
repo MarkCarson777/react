@@ -15,11 +15,12 @@ import ReactDOM from 'react-dom';
 // class based component
 class App extends React.Component {
   constructor(props) {
+    // constructor requires super
     super(props);
 
     // this is the state object
     // this is the only time we do direct assignment to this.state
-    this.state = { lat: null };
+    this.state = { lat: null, errorMessage: '' };
 
     window.navigator.geolocation.getCurrentPosition(
       // success callback
@@ -27,7 +28,9 @@ class App extends React.Component {
         this.setState({ lat: position.coords.latitude });
       },
       // failure callback
-      (err) => console.log(err)
+      err => {
+        this.setState({ errorMessage: err.message })
+      }
     );
   }
 
