@@ -1,3 +1,4 @@
+import './SeasonDisplay.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
@@ -48,7 +49,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <i class="massive spinner loading icon"></i>
+        <i className="season-display massive spinner loading icon"></i>
       </div>
     );
   }
