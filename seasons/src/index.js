@@ -22,6 +22,8 @@ class App extends React.Component {
     // this is the only time we do direct assignment to this.state
     this.state = { lat: null, errorMessage: '' };
 
+    // alternate way to intialize state
+
     window.navigator.geolocation.getCurrentPosition(
       // success callback
       position => {
@@ -32,6 +34,14 @@ class App extends React.Component {
         this.setState({ errorMessage: err.message })
       }
     );
+  }
+  
+  componentDidMount() {
+    console.log("Component was rendered");
+  }
+
+  componentDidUpdate() {
+    console.log("Component was updated");
   }
 
   // React says we are required to define render!
