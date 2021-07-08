@@ -19,18 +19,18 @@ class App extends React.Component {
 
     // this is the state object
     this.state = { lat: null };
-  }
 
-  // React says we are required to define render!
-  render() {
     window.navigator.geolocation.getCurrentPosition(
       // success callback
       (position) => console.log(position),
       // failure callback
       (err) => console.log(err)
     );
+  }
 
-    return <div>Latitude: </div>;
+  // React says we are required to define render!
+  render() {
+    return <div>Latitude: {this.state.lat}</div>;
   }
 }
 
