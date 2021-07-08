@@ -36,7 +36,12 @@ class App extends React.Component {
 
   // React says we are required to define render!
   render() {
-    return <div>Latitude: {this.state.lat}</div>;
+    return (
+      <div>
+        Latitude: {this.state.lat}
+        Error: {this.state.errorMessage}
+      </div>
+    );
   }
 }
 
