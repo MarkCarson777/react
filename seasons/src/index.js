@@ -46,7 +46,11 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />;
     }
 
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <i class="spinner loading icon"></i>
+      </div>
+    );
   }
 }
 
