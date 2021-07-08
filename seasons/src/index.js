@@ -21,23 +21,15 @@ class App extends React.Component {
     // this is the state object
     // this is the only time we do direct assignment to this.state
     this.state = { lat: null, errorMessage: '' };
-
-    // alternate way to intialize state
-
-    window.navigator.geolocation.getCurrentPosition(
-      // success callback
-      position => {
-        this.setState({ lat: position.coords.latitude });
-      },
-      // failure callback
-      err => {
-        this.setState({ errorMessage: err.message })
-      }
-    );
   }
   
   componentDidMount() {
-    console.log("Component was rendered");
+    window.navigator.geolocation.getCurrentPosition(
+      // success callback
+      position => this.setState({ lat: position.coords.latitude }),
+      // failure callback
+      err => this.setState({ errorMessage: err.message })
+    );
   }
 
   componentDidUpdate() {
