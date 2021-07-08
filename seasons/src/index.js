@@ -14,17 +14,17 @@ import ReactDOM from 'react-dom';
 
 // class based component
 class App extends React.Component {
-  constructor(props) {
-    // constructor requires super
-    super(props);
-
-    // this is the state object
-    // this is the only time we do direct assignment to this.state
-    this.state = { lat: null, errorMessage: '' };
-  }
+//   constructor(props) {
+//     // constructor requires super
+//     super(props);
+// 
+//     // this is the state object
+//     // this is the only time we do direct assignment to this.state
+//     this.state = { lat: null, errorMessage: '' };
+//   }
   
   // alternative way to initialize state
-  // state = { lat: null, errorMessage: '' };
+  state = { lat: null, errorMessage: '' };
   
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
@@ -33,10 +33,6 @@ class App extends React.Component {
       // failure callback
       err => this.setState({ errorMessage: err.message })
     );
-  }
-
-  componentDidUpdate() {
-    console.log("Component was updated");
   }
 
   // React says we are required to define render!
