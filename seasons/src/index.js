@@ -16,6 +16,7 @@ import Spinner from './Spinner';
 // };
 
 // class based component
+// class name does not have to be App
 class App extends React.Component {
 //   constructor(props) {
 //     // constructor requires super
