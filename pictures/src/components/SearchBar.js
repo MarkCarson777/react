@@ -1,9 +1,10 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  onInputChange(event) {
-    console.log(event.target.value);
-  }
+  state = { term: '' };
+  // onInputChange(event) {
+  //   console.log(event.target.value);
+  // }
 
   render() {
     return (
@@ -13,9 +14,12 @@ class SearchBar extends React.Component {
           <div className="field">
           {/* onInputChange is a function with no parentheses as we don't want it to be run every time we render */}
           {/* onChange is a JS property and cannot be called by any other name */}
-            <input type ="text" onChange={this.onInputChange} />
-            {/* alternate version */}
-          {/* <input type="text" onChange={(event) => console.log(event.target.value)} />; */}
+            <input 
+              type ="text" 
+              value={this.state.term} 
+              onChange={(e) => this.setState({ term: e.target.value })} />
+              {/* alternate version - we use an arrow function when there is a single line of code we want to return */}
+              {/* <input type="text" onChange={(event) => console.log(event.target.value)} />; */}
           </div>
         </form>
       </div>
