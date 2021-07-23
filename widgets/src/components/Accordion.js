@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// useState example
 const Accordion = ( {items} ) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
