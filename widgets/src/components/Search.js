@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Search = () => {
   const [term, setTerm] = useState('');
+  
+  console.log('I run with every render');
+
+  // useEffect example
+  useEffect(() => {
+    console.log('I only run once');
+  }, []);
 
   return (
     <div>
