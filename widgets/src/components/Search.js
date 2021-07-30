@@ -33,14 +33,6 @@ const Search = () => {
     search();
   }, [debouncedTerm]);
 
-    // console.log('Initial render or term was changed');
-    // // the only thing we are allowed to return from useEffect is another function
-    // // this function is ran before the overall useEffect function is called again
-    // return () => {
-    //   console.log('CLEANUP');
-    // };
-
-
   const renderedResults = results.map((result) => {
     return (
       <div key={result.pageid} className="item">
