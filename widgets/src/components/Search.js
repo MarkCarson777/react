@@ -22,22 +22,26 @@ const Search = () => {
       setResults(data.query.search);
     };
     
-    const timeoutId = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500);
-
+    if (term && !results.length) {
+      search();
+    } else {
+      const timeoutId = setTimeout(() => {
+        if (term) {
+          search();
+        }
+      }, 1000);
+    
     return () => {
       clearTimeout(timeoutId);
     };
-    
+
     // console.log('Initial render or term was changed');
     // // the only thing we are allowed to return from useEffect is another function
     // // this function is ran before the overall useEffect function is called again
     // return () => {
     //   console.log('CLEANUP');
     // };
+    }
   }, [term]);
 
   const renderedResults = results.map((result) => {
