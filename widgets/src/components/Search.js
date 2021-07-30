@@ -8,30 +8,36 @@ const Search = () => {
   // useEffect example
   // using async code in functional component
   useEffect(() => {
-//     const search = async () => {
-//         const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
-//         params: {
-//           action: 'query',
-//           list: 'search',
-//           origin: '*',
-//           format: 'json',
-//           srsearch: term,
-//         }
-//       });
-// 
-//       setResults(data.query.search);
-//     };
-//     
-//     const timeoutId = setTimeout(() => {
-//       if (term) {
-//         search();
-//       }
-//     }, 500);
-    console.log('Initial render or term was changed');
-    // the only thing we are allowed to return from useEffect is another function
-    return () => {
-      console.log('CLEANUP');
+    const search = async () => {
+        const { data } = await axios.get('https://en.wikipedia.org/w/api.php', {
+        params: {
+          action: 'query',
+          list: 'search',
+          origin: '*',
+          format: 'json',
+          srsearch: term,
+        }
+      });
+
+      setResults(data.query.search);
     };
+    
+    const timeoutId = setTimeout(() => {
+      if (term) {
+        search();
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+    
+    // console.log('Initial render or term was changed');
+    // // the only thing we are allowed to return from useEffect is another function
+    // // this function is ran before the overall useEffect function is called again
+    // return () => {
+    //   console.log('CLEANUP');
+    // };
   }, [term]);
 
   const renderedResults = results.map((result) => {
