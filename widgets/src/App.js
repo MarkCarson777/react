@@ -58,6 +58,9 @@ const showTranslate = () => {
   }
 }
 
+// const showComponent = (route, component) => {
+//   return window.location.pathname === route ? component : null;
+// };
 
 export default () => {
   // const [selected, setSelected] = useState(options[0]);
