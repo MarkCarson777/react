@@ -64,7 +64,7 @@ const options = [
 // };
 
 export default () => {
-  // const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
@@ -74,6 +74,17 @@ export default () => {
       </Route>
       <Route path="/list">
         <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown 
+          label="Select a color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
       </Route>
       {/* <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button> */}
       {/* {showDropdown ? */}
