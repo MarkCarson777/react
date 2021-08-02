@@ -21,7 +21,7 @@ const Convert = ({ language, text }) => {
       // we create a third argument/second object for query string parameters
       const { data } = await axios.post('https://translation.googleapis.com/language/translate/v2', {}, {
         params: {
-          q: text,
+          q: debouncedText,
           target: language.value,
           key: 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM'
         }
@@ -31,7 +31,7 @@ const Convert = ({ language, text }) => {
     };
 
   doTranslation();
-}, [language, text]);
+}, [language, debouncedText]);
 
   return (
     <div>
