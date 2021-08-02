@@ -34,12 +34,19 @@ const options = [
   }
 ];
 
+const showAccordion = () = {
+  if (window.location.pathname === '/') {
+    return <Accordion items={items} />;
+  }
+}
+
 export default () => {
   // const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div>
+      {showAccordion()}
       {/* <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button> */}
       {/* {showDropdown ? */}
       {/*   <Dropdown  */}
