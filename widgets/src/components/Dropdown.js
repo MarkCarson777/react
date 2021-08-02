@@ -6,15 +6,19 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   // manual event listener
   useEffect(() => {
-    document.body.addEventListener('click', (event) => {
-      // this is where we refer to our useRef
-      // the contain element belongs to all DOM elements
+    const onBodyClick = (event) => {
       if (ref.current.contains(event.target)) {
         return;
       }
+      setOpen(false); 
+    };
+    document.body.addEventListener('click', onBodyClick, {capture: true});
 
-      setOpen(false);
-    }, { capture: true });
+    return () => {
+      document.body.removeEventListener('click', onBodyClick, { 
+        capture: true,
+      });
+    };
   }, []);
 
   const renderedOptions = options.map((option) => {
