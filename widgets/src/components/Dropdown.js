@@ -4,10 +4,15 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
-  // manual event listender
+  // manual event listener
   useEffect(() => {
     document.body.addEventListener('click', (event) => {
-      // console.log(event.target);
+      // this is where we refer to our useRef
+      // the contain element belongs to all DOM elements
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+
       setOpen(false);
     }, { capture: true });
   }, []);
@@ -30,8 +35,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       </div>
       );
   });
-  
-  console.log(ref.current);
 
   return (
     <div ref={ref} className="ui form">
