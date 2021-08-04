@@ -7,7 +7,7 @@ const useVideos = (defaultSearchTerm) => {
   useEffect(() => {
     // 'buildings' is the "input" for when we are trying to build a custom hook
     search(defaultSearchTerm);
-  }, []);
+  }, [defaultSearchTerm]);
 
   // changed onTermSubmit to search as it no longer made much sense
   const search = async term => {
