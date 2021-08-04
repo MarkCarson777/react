@@ -23,6 +23,16 @@ const App = () => {
 
   // setSelectedVideo(response.data.items[0]);
 
+  // const onTermSubmit = async term => {
+  //   const response = await youtube.get('/search', {
+  //     params: {
+  //       q: term
+  //     }
+  //   });
+  //   
+  //   setVideos(response.data.items);
+  // };
+ 
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={onTermSubmit} />
