@@ -10,27 +10,19 @@ import VideoDetail from './VideoDetail';
 
 const App = () => {
   // videos is an output
-  const [videos, setVideos] = useState([]);
+  // const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   // equivalent to componentDidMount
-  useEffect(() => {
-    // 'buildings' is the "input" for when we are trying to build a custom hook
-    onTermSubmit('buildings');
-  }, []);
+  // useEffect(() => {
+  //   // 'buildings' is the "input" for when we are trying to build a custom hook
+  //   onTermSubmit('buildings');
+  // }, []);
   
   // onTermSubmit is an output
-  const onTermSubmit = async term => {
-    const response = await youtube.get('/search', {
-      params: {
-        q: term
-      }
-    });
-    
-    setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]);
-  };
- 
+
+  // setSelectedVideo(response.data.items[0]);
+
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={onTermSubmit} />
