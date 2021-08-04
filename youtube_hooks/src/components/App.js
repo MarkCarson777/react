@@ -4,15 +4,22 @@ import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 
+// If you give me a 'default search term'
+// I will give you 'a way to search for videos'
+// and 'a list of videos'
+
 const App = () => {
+  // videos is an output
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   // equivalent to componentDidMount
   useEffect(() => {
+    // 'buildings' is the "input" for when we are trying to build a custom hook
     onTermSubmit('buildings');
   }, []);
-
+  
+  // onTermSubmit is an output
   const onTermSubmit = async term => {
     const response = await youtube.get('/search', {
       params: {
@@ -23,11 +30,7 @@ const App = () => {
     setVideos(response.data.items);
     setSelectedVideo(response.data.items[0]);
   };
-  // passed as single line expression in return
-  // const onVideoSelect = video => {
-  //   setSelectedVideo(video);
-  // };
-
+ 
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={onTermSubmit} />
