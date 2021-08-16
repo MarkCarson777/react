@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const songReducer = () => {
   return [
     { title: 'Simple Man', duration: '4:05' },
