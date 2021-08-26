@@ -2,7 +2,8 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
-  renderInput({ input, label }) {
+  renderInput({ input, label, meta }) {
+    console.log(meta);
     // console.log(formProps);
     // quick refactor
     // return <input onChange={formProps.input.onChange} value={formProps.input.value} />;
@@ -13,6 +14,7 @@ class StreamCreate extends React.Component {
       <div className="field">
         <label>{label}</label>
         <input {...input} />
+        <div>{meta.error}</div>
       </div>
     );
   }
@@ -29,12 +31,29 @@ class StreamCreate extends React.Component {
         {/* component needs to return an element that we actually want to show on the screen  */}
         <Field name="title" component={this.renderInput} label="Enter Title" />
         <Field name="description" component={this.renderInput} label="Enter Description" />
-        <button className="ui button library">Submit</button>
+        <button className="ui button library blue">Submit</button>
       </form>
     );
   }
 }
 
+const validate = (formValues) => {
+  const errors = {};
+
+  if (!formValues.title) {
+    // only ran if user did not enter a title
+    errors.title = "You must enter a title"
+  }
+
+  if (!formValues.description) {
+    // only ran if user did not enter a description
+    errors.description = "You must enter a description"
+  }
+
+  return errors;
+};
+
 export default reduxForm({
-  form: 'streamCreate'
+  form: 'streamCreate',
+  validate: validate
 })(StreamCreate);
