@@ -36,7 +36,8 @@ class StreamCreate extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form">
+      // needs a classname of error or no error messages will be displayed
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
         {/* name prop is always required */}
         {/* component needs to return an element that we actually want to show on the screen  */}
         <Field name="title" component={this.renderInput} label="Enter Title" />
