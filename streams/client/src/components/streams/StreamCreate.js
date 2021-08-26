@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends React.Component {
   renderInput({ input, label, meta }) {
-    console.log(meta);
+    // console.log(meta);
     // console.log(formProps);
     // quick refactor
     // return <input onChange={formProps.input.onChange} value={formProps.input.value} />;
@@ -13,14 +13,14 @@ class StreamCreate extends React.Component {
     return (
       <div className="field">
         <label>{label}</label>
-        <input {...input} />
+        <input {...input} autoComplete="off" />
         <div>{meta.error}</div>
       </div>
     );
   }
 
   onSubmit(formValues) {
-    console.log(formValues);
+    // console.log(formValues);
   }
 
   render() {
