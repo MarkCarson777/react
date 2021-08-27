@@ -9,6 +9,18 @@
       "title": "Stream",
       "description": "Awesome",
       "id": 2
+    },
+    {
+      "title": "userId stream",
+      "description": "still awesome",
+      "userId": "114675464445493157380",
+      "id": 3
+    },
+    {
+      "title": "Programmatic Navigation",
+      "description": "Awesome-O",
+      "userId": "114675464445493157380",
+      "id": 4
     }
   ]
 }
