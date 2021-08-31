@@ -11,8 +11,8 @@ class UserList extends React.Component {
   renderList() {
     return this.props.users.map(user => {
       return (
-        <div key={user.id - 1}>
-          <Link to={`/${user.id - 1}`}>
+        <div key={user.id} className="button">
+          <Link to={`/${user.id}`}>
             <button>
               <p>{user.name}</p>
               <p>{user.email}</p>
@@ -24,7 +24,16 @@ class UserList extends React.Component {
   };
 
   render() {
-    return <div>{this.renderList()}</div>;
+    return (
+      <div>
+        <div>
+          <h3>Umi React Assignment</h3>
+        </div>
+        <div>
+          {this.renderList()}
+        </div>
+      </div>
+    );
   }
 }
 

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { fetchUsers, fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import PostList from './PostList';
-import './App.css';
 
 class UserPosts extends React.Component {
   componentDidMount() {
@@ -19,7 +18,7 @@ class UserPosts extends React.Component {
           </button>
         </Link>
         <h2>Posts by {this.props.user.name}</h2>
-        <div className="user-card">
+        <div>
           <p>{this.props.user.name}</p>
           <p>{this.props.user.email}</p>
         </div>
@@ -31,7 +30,7 @@ class UserPosts extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    user: state.users[ownProps.match.params.id]
+    user: state.users[ownProps.match.params.id - 1]
   };
 };
 
