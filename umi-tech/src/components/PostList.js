@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import './App.css';
 
 class PostList extends React.Component {
   componentDidMount() {
@@ -19,7 +20,12 @@ class PostList extends React.Component {
 
     return (
       <div>
-        {renderedList}
+        <div>
+          Number of posts: {userPosts.length}
+        </div>
+        <div>
+          {renderedList}
+        </div>
       </div>
     );
   }
