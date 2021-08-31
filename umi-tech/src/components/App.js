@@ -1,9 +1,12 @@
 import React from 'react';
+// import PostList from './PostList';
+import UserList from './UserList';
 
 const App = () => {
   return (
     <div>
-      App 
+      <UserList />
+      {/* <PostList /> */}
     </div>
   );
 };
