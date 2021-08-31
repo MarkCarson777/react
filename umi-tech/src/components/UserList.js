@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 import { Link } from 'react-router-dom';
+import './UserList.css';
 
 class UserList extends React.Component {
   componentDidMount() {
@@ -13,7 +14,7 @@ class UserList extends React.Component {
       return (
         <div key={user.id} className="button">
           <Link to={`/${user.id}`}>
-            <button>
+            <button className="user-button">
               <p>{user.name}</p>
               <p>{user.email}</p>
             </button>
@@ -27,9 +28,9 @@ class UserList extends React.Component {
     return (
       <div>
         <div>
-          <h3>Umi React Assignment</h3>
+          <h3 className="header">Umi React Assignment</h3>
         </div>
-        <div>
+        <div className="button-layout">
           {this.renderList()}
         </div>
       </div>

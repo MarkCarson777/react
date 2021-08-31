@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUsers, fetchPosts } from '../actions';
 import { Link } from 'react-router-dom';
 import PostList from './PostList';
+import './UserPosts.css';
 
 class UserPosts extends React.Component {
   componentDidMount() {
@@ -12,13 +13,16 @@ class UserPosts extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          <h3 className="header">Umi React Assignment</h3>
+          <h3 className="header">Posts by {this.props.user.name}</h3>
+        </div>
         <Link to="/">
-          <button>
+          <button className="back-button">
             GO BACK
           </button>
         </Link>
-        <h2>Posts by {this.props.user.name}</h2>
-        <div>
+        <div className="user-card">
           <p>{this.props.user.name}</p>
           <p>{this.props.user.email}</p>
         </div>
