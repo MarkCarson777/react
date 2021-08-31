@@ -11,8 +11,8 @@ class UserList extends React.Component {
   renderList() {
     return this.props.users.map(user => {
       return (
-        <div key={user.id}>
-          <Link to={`/${user.id}`}>
+        <div key={user.id - 1}>
+          <Link to={`/${user.id - 1}`}>
             <button>
               <p>{user.name}</p>
               <p>{user.email}</p>

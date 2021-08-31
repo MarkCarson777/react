@@ -4,19 +4,28 @@ import { fetchPosts } from '../actions';
 
 class PostList extends React.Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts(this.props.userId);
   }
 
   renderList() {
-    return this.props.posts.map(post => {
+    const userPosts = this.props.posts.filter(post => post.userId === this.props.userId);
+    const renderedList = userPosts.map(userPost => {
       return (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
+        <div>
+          {userPost.title}
         </div>
       );
     });
-  };
 
+    return (
+      <div>
+        {renderedList}
+      </div>
+    );
+  }
+  
+
+  
   render() {
     return <div>{this.renderList()}</div>;
   }
